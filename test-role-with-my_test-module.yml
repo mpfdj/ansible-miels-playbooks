@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+#- hosts: all
+  tasks:
+
+    - include_role: name=test-role-with-my_test-module

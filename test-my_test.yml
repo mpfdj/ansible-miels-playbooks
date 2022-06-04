@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  tasks:
+    - name: run the new module
+      miel.my_collection.my_test:
+        name: 'hello'
+        new: true
+      register: testout
+    - name: dump test output
+      debug:
+        msg: '{{ testout }}'

@@ -1,0 +1,36 @@
+---
+
+#  This filter has migrated to the community.general collection. Follow the installation instructions to install that collection.
+#  You must manually install the jmespath dependency on the Ansible controller before using this filter. This filter is built upon jmespath, and you can use the same syntax. For examples, see jmespath examples.
+
+#  Installing jmespath on the controller is not possible since it is not allowed by CDAAS
+
+- hosts: localhost
+
+  vars:
+    data: '{ "hello": "world" }'
+
+  tasks:
+
+
+    - shell: cat domain_definition.json
+      register: result
+
+    - name: save the Json data to a Variable as a Fact
+      set_fact:
+#        jsondata: "{{ result.stdout | from_json }}"
+        jsondata: "{{ result.stdout }}"
+
+    - debug:
+        var: jsondata.domain_definition.domain.server
+
+
+#    - name: Debug get full document
+#      debug:
+#        msg: "{{ data | to_json | from_json | json_query(['hello']) }}"
+
+    - name: Display servers belonging to cluster 1
+      debug:
+        var: item
+      loop: "{{ jsondata | json_query(domain_definition.domain.server[?cluster=='cluster1']) }}"
+#      loop: "{{ jsondata | community.general.json_query(domain_definition.domain.server[?cluster=='cluster1']) }}"

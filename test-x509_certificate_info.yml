@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: pwd
+      command: pwd
+      register: result
+
+    - debug:
+        var: result
+
+    - community.crypto.x509_certificate_info:
+        path: wsl/miel.de.jaeger.nl.pem
+        select_crypto_backend: cryptography
+
+      register: x509_certificate_info
+
+    - name: Echo certificate
+      debug:
+        var: x509_certificate_info
+
+    - name: Echo issuer
+      debug:
+        var: x509_certificate_info.issuer.commonName
