@@ -50,3 +50,9 @@ https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.htm
 
 https://blog.toast38coza.me/custom-ansible-module-hello-world/amp/
 https://github.com/toast38coza/ansible-modules/blob/master/library/github_repo.py
+
+
+# Creating a custom filter
+https://gist.github.com/tuxfight3r/37048ba536575277f5f4d26813d69489
+https://gist.github.com/37048ba536575277f5f4d26813d69489.git
+
