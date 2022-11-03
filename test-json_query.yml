@@ -24,10 +24,10 @@
     - debug:
         var: jsondata.domain_definition.domain.server
 
-
-#    - name: Debug get full document
-#      debug:
-#        msg: "{{ data | to_json | from_json | json_query(['hello']) }}"
+# You need to install "jmespath" prior to running json_query filter
+    - name: Debug get full document
+      debug:
+        msg: "{{ jsondata | to_json | from_json | json_query(['domain_definition']) }}"
 
     - name: Display servers belonging to cluster 1
       debug:

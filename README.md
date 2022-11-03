@@ -42,3 +42,11 @@ python version = 3.10.4 (main, Apr  2 2022, 09:04:19) [GCC 11.2.0]
 jinja version = 3.0.3
 libyaml = False
 
+
+
+
+# Creating a custom module
+https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html
+
+https://blog.toast38coza.me/custom-ansible-module-hello-world/amp/
+https://github.com/toast38coza/ansible-modules/blob/master/library/github_repo.py
