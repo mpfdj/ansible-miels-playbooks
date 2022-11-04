@@ -49,10 +49,20 @@ libyaml = False
 https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html
 
 https://blog.toast38coza.me/custom-ansible-module-hello-world/amp/
+https://github.com/toast38coza/ansible-modules/tree/master
 https://github.com/toast38coza/ansible-modules/blob/master/library/github_repo.py
+
 
 
 # Creating a custom filter
 https://gist.github.com/tuxfight3r/37048ba536575277f5f4d26813d69489
 https://gist.github.com/37048ba536575277f5f4d26813d69489.git
 
+
+# Comparing includes and imports
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html#comparing-includes-and-imports-dynamic-and-static-re-use
+
+
+# Roles
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#roles
+https://docs.ansible.com/ansible/2.5/user_guide/playbooks_reuse_roles.html#roles

@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Create a github Repo
+      github_repo1:
+        github_auth_key: "SOME_API_KEY"
+        name: "Hello-World"
+        description: "This is your first repository"
+        private: yes
+        has_issues: no
+        has_wiki: no
+        has_downloads: no
+        state: present
+      register: result
+
+    - name: Debug
+      debug:
+        var: result
+
+
+    - name: Create a github Repo
+      github_repo2:
+        github_auth_key: "SOME_API_KEY"
+        name: "Hello-World"
+        description: "This is your first repository"
+        private: yes
+        has_issues: no
+        has_wiki: no
+        has_downloads: no
+        state: present
+      register: result
+
+    - name: Debug
+      debug:
+        var: result
