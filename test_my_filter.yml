@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Print a message
+      debug:
+        msg: "{{ 'test' | a_filter }}"
+
+    - name: Print another message
+      debug:
+        msg: "{{ 'test' | another_filter('the','filters') }}"
