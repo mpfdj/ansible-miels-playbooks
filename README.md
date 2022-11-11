@@ -15,6 +15,7 @@ ansible-playbook ./test-x509_certificate_info.yml
 # Don't forget to add the comma!
 # Don't forget to update hosts tag in test-role-with-my_test-module.yml
 ansible-playbook ./test-role-with-my_test-module.yml -i clrv0000xxxxxx, --user to11rc --ask-pass
+ansible-playbook ./test-role-with-my_test-module.yml -i clrv0000xxxxxx, --extra-vars @extra-vars.yml
 
 
 # List of collections

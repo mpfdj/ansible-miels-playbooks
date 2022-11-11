@@ -1,6 +1,6 @@
 ---
 # Run from root
-# Command to run the test playbook is "ansible-playbook test_tibco_obfuscate.yml -i inventory_test.yml --extra-vars @extra_vars_test.yml"
+# Command to run the test playbook is "ansible-playbook test_tibco_obfuscate.yml -i inventory_test.yml --extra-vars @extra_vars.yml"
 
 - hosts: all
   become: true

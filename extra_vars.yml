@@ -1,0 +1,3 @@
+---
+ansible_user: to11rc
+ansible_ssh_pass: P@ssw0rd
