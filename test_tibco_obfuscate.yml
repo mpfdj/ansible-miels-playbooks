@@ -1,0 +1,18 @@
+---
+# Run from root
+# Command to run the test playbook is "ansible-playbook test_tibco_obfuscate.yml -i inventory_test.yml --extra-vars @extra_vars_test.yml"
+
+- hosts: all
+  become: true
+  become_method: su
+  become_exe: sx su -
+  tasks:
+    - name: Test my tibco_obfuscate module
+      tibco_obfuscate:
+        password: my-secret
+#      no_log: true
+      register: result
+
+    - name: Debug
+      debug:
+        var: result.password
