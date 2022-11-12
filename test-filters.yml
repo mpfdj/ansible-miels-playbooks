@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  vars:
+    numbers: [1, 2, 3]
+  tasks:
+    - name: Debug
+      debug:
+        msg:
+          - "max is {{ numbers | max }}"
+          - "{{ 'Hello World' | replace('Hello', 'Goodbye') }}"
+          - "{{ 'München'| to_json(ensure_ascii=false) }}"
+
+    - name: Set a variable
+      set_fact:
+        message: hello world
+
+    - name: Using template
+      template:
+        src: helloworld.txt.j2
+        dest: helloworld.txt
