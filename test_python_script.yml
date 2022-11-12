@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  vars:
+    person:
+      name: Miel de Jaeger
+      dob: 04/07/1980
+      email: mpf.dejaeger@gmail.com
+
+  tasks:
+    - name: Run a python script
+      script:
+        cmd: cars.py
+        executable: python3
+#      delegate_to: localhost
+      register: cars
+
+#    - name: Debug
+#      debug:
+#        var: cars
+
+
+    - name: Run a python script
+      script:
+        cmd: check.py "{{ person }}"
+        executable: python3
+#      delegate_to: localhost
+      register: check
+
+    - name: Debug
+      debug:
+        var: check
+
