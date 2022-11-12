@@ -1,10 +1,25 @@
-# https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
-# https://docs.ansible.com/ansible/latest/collections/index.html
+# Import versus Include
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html#comparing-includes-and-imports-dynamic-and-static-re-use
 
-cd ansible-miels-playbooks
-mkdir collections
-ansible-galaxy collection install community.crypto --collections-path ./collections
-ansible-galaxy collection install community.general --collections-path ./collections
+
+# Collections
+https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
+https://docs.ansible.com/ansible/latest/collections/index.html
+
+
+# Install a collection
+sudo -i
+cd ansible-miels-playbooks/collections
+ansible-galaxy collection install community.crypto --collections-path .
+ansible-galaxy collection install community.general --collections-path .
+ansible-galaxy collection install ansible.utils --collections-path .
+
+
+# Install a role
+sudo -i
+cd ansible-miels-playbooks/roles
+ansible-galaxy install --roles-path . --role-file requirements.yml --ignore-certs --force
+
 
 ansible-playbook ./test-json_query.yml
 ansible-playbook ./test-my_test.yml
@@ -60,10 +75,17 @@ https://gist.github.com/tuxfight3r/37048ba536575277f5f4d26813d69489
 https://gist.github.com/37048ba536575277f5f4d26813d69489.git
 
 
-# Comparing includes and imports
-https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html#comparing-includes-and-imports-dynamic-and-static-re-use
-
-
 # Roles
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#roles
 https://docs.ansible.com/ansible/2.5/user_guide/playbooks_reuse_roles.html#roles
+
+
+# Jinja2
+https://stackoverflow.com/questions/43185043/what-do-double-curly-braces-mean-in-yaml-files-as-used-by-ansible
+
+
+# Filters
+- jinja2 filters           (https://jinja.palletsprojects.com/)
+- ansible filters          (https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html)
+- python builtin functions (https://docs.python.org/2/library/stdtypes.html)
+- lookup plugins           (https://docs.ansible.com/ansible/latest/plugins/lookup.html)
