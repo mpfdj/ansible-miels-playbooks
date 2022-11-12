@@ -1,0 +1,47 @@
+---
+# https://stackoverflow.com/questions/23195321/how-to-convert-string-to-uppercase-lowercase-in-jinja2
+
+
+- hosts: localhost
+  vars:
+    greeting: "{% if false %}hello{% else %}goodbye{% endif %}"
+    greeting_multiline: >-
+      {%- if true -%}
+        {{ "hello".upper() }}  # using python function (https://docs.python.org/2/library/stdtypes.html#string-methods)
+      {%- else -%}
+        {{ "goodbye" | upper }}  # using filter syntax
+      {%- endif -%}
+
+    IPC_tenant: bankinfra  # ipcqa or bankinfra
+    IPC_effective_env_var: |-
+      {%- if IPC_tenant | upper == "IPCQA" -%}
+        IPCQA
+      {%- else -%}
+        IPC
+      {%- endif -%}
+
+    hosts: ["host1", "host2", "host3"]
+    fqdn: |-
+      {%- set fqdn = [] -%}
+      {%- for h in hosts -%}
+      {{ fqdn.append(h + ".nl") }}
+      {%- endfor -%}
+      {{ fqdn }}  # return value here
+
+    miel: >-
+      {%- set person = {} -%}
+      {{ person.__setitem__("name", "Miel de Jaeger") }}
+      {{ person.__setitem__("dob", "04/07/1980") }}
+      {{ person.__setitem__("email", "mpf.dejaeger@gmail.com") }}
+      {{ person }}
+
+  tasks:
+    - name: Debug
+      debug:
+        msg:
+          - "greeting is {{ greeting }}"
+          - "greeting_multiline is {{ greeting_multiline }}"
+          - "{{ 'hello'.zfill(10) }}"  # using a python function here
+          - "IPC_effective_env_var is {{ IPC_effective_env_var }}"
+          - "fqdn is {{ fqdn }}"
+          - "miel is {{ miel }}"
